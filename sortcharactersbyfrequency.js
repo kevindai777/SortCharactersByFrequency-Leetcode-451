@@ -10,6 +10,7 @@ let string = 'tree'
 
 let map = {}
 
+//Map the frequencies of each character
 for (let i = 0; i < string.length; i++) {
     if (map[string.charAt(i)] === undefined) {
         map[string.charAt(i)] = 1
@@ -18,12 +19,14 @@ for (let i = 0; i < string.length; i++) {
     }
 }
 
+//Sort the frequencies from least to greatest
 let sorted = Object.entries(map).sort((a,b) => {
     return b[1] - a[1]
 })
 
 let newString = ''
 
+//Decrement frequencies while adding respective character to final string
 for (let i = 0; i < sorted.length; i++) {
     while (sorted[i][1] > 0) {
         newString += sorted[i][0]
